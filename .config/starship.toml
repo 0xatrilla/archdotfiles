@@ -1,0 +1,53 @@
+# Omarchy + Alacritty tuned prompt (clean, modern, liquid-line aesthetic)
+
+format = """\
+[╭─](bold white)$directory$git_branch$git_status$cmd_duration$time
+[╰─](bold white)$character """
+
+add_newline = true
+
+[directory]
+style = "bold cyan"
+read_only = " "
+truncation_length = 3
+truncation_symbol = "…/"
+format = " [$path]($style)"
+
+[git_branch]
+symbol = " "
+style = "bold purple"
+format = " [$symbol$branch]($style)"
+
+[git_status]
+style = "dim white"
+format = '([$all_status$ahead_behind]($style))'
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[✗](bold red)"
+vicmd_symbol = "[❮](bold yellow)"
+
+[cmd_duration]
+min_time = 1500
+style = "bold yellow"
+format = " took [$duration]($style)"
+
+[time]
+disabled = false
+time_format = "%H:%M"
+style = "dim white"
+format = " [ $time]($style)"
+
+# Optional: clean up unused stuff
+[package]
+disabled = true
+[nodejs]
+disabled = true
+[python]
+disabled = true
+[rust]
+disabled = false
+symbol = " "
+style = "fg:#fab387"
+format = " [$symbol$version]($style)"
+
